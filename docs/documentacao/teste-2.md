@@ -11,7 +11,7 @@ Bem-vindo ao nosso tutorial em vídeo! Neste guia rápido, você aprenderá a us
 
 Clique no player abaixo para assistir ao tutorial completo:
 
-[![Assista ao tutorial no YouTube](https://img.youtube.com/vi/ID_DO_VIDEO/maxresdefault.jpg)](https://www.youtube.com/watch?v=ID_DO_VIDEO)
+[![Assista ao tutorial no YouTube](https://i.ytimg.com/an_webp/gZ0AqUIBFKM/mqdefault_6s.webp?du=3000&sqp=CKTbqcQG&rs=AOn4CLB72QWbFRH1qVpA2jiJVCmmCn4ASA)](https://youtu.be/gZ0AqUIBFKM)
 
 ---
 
