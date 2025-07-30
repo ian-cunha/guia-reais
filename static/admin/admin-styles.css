@@ -1,0 +1,19 @@
+[class*='Button-button-default-primary'] {
+    background-color: #ED5B00 !important;
+}
+
+[class*='AppHeader-header-button'],
+[class*='CollectionTop-collectionTop-button'] {
+    background-color: #4D18A3 !important;
+}
+
+[class*='AppHeader-header-button-icon'],
+[class*='AppHeader-header-button-label'],
+[class*='CollectionTop-collectionTop-button-label'] {
+    color: white !important;
+}
+
+[class*='Collection-collection-link-active'] {
+    border-left-color: #ED5B00 !important;
+    color: #ED5B00 !important;
+}
