@@ -36,9 +36,9 @@ const config: Config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'documentacao',
-        path: 'docs/documentacao',
-        routeBasePath: 'documentacao',
+        id: 'tutoriais',
+        path: 'docs/tutoriais',
+        routeBasePath: 'tutoriais',
         sidebarPath: './sidebars.ts',
       },
     ],
@@ -58,11 +58,11 @@ const config: Config = {
       'classic',
       {
         docs: false,
-        blog: {
+        /*blog: {
           showReadingTime: true,
           editUrl:
             'https://github.com/ian-cunha/guia-reais/tree/main/',
-        },
+        },*/
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -82,8 +82,8 @@ const config: Config = {
           type: 'doc',
           docId: 'intro',
           position: 'left',
-          label: 'Documentação',
-          docsPluginId: 'documentacao',
+          label: 'Tutoriais',
+          docsPluginId: 'tutoriais',
         },
         {
           type: 'doc',
@@ -92,7 +92,7 @@ const config: Config = {
           label: 'API Referências',
           docsPluginId: 'api-referencias',
         },
-        { to: '/blog', label: 'Blog', position: 'left' },
+        /*{ to: '/blog', label: 'Blog', position: 'left' },*/
         {
           href: 'https://www.reaisystems.com.br/',
           label: 'RE.AI.s',
@@ -107,8 +107,8 @@ const config: Config = {
           title: 'Seções',
           items: [
             {
-              label: 'Documentação',
-              to: '/documentacao/intro',
+              label: 'Tutoriais',
+              to: '/tutoriais/intro',
             },
             {
               label: 'API Referências',
@@ -126,7 +126,7 @@ const config: Config = {
         {
           title: 'Mais',
           items: [
-            { label: 'Blog', to: '/blog' },
+            /*{ label: 'Blog', to: '/blog' },*/
             { label: 'Site', href: 'http://realestateaiplanner.com.br/' },
           ],
         },

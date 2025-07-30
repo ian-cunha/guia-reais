@@ -8,9 +8,9 @@ media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
 collections:
-  - name: "documentacao"
-    label: "📄 Documentação"
-    folder: "docs/documentacao"
+  - name: "tutoriais"
+    label: "📄 Tutoriais"
+    folder: "docs/tutoriais"
     create: true
     slug: "{{slug}}"
     fields:
