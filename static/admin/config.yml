@@ -13,6 +13,9 @@ collections:
     folder: "docs/tutoriais"
     create: true
     slug: "{{slug}}"
+    nested:
+      depth: 3
+      summary: "{{title}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
@@ -22,6 +25,9 @@ collections:
     folder: "docs/api-referencias"
     create: true
     slug: "{{slug}}"
+    nested:
+      depth: 3
+      summary: "{{title}}"
     fields:
       - { label: "Título do Endpoint", name: "title", widget: "string" }
       - { label: "Descrição da API", name: "body", widget: "markdown" }
