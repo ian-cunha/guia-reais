@@ -1,31 +1,37 @@
 ---
 sidebar_position: 1
-title: Introdução à API
+title: Início Rápido e Autenticação
 ---
 
-# Introdução à API RE.AI.s
+# Introdução à API de Integração
 
-Bem-vindo à documentação de referência da nossa API. Este guia fornece todos os detalhes técnicos que você, desenvolvedor, precisa para integrar suas aplicações com a plataforma RE.AI.s de forma rápida e segura.
+Bem-vindo à documentação da nossa API! Ela foi projetada para possibilitar a integração do sistema RE.AI.s com o site e as Landing Pages do seu negócio através de consultas em tempo real.
 
-### Estrutura da Documentação
+A API utiliza a tecnologia **JSON**, com uma linguagem simples e de fácil entendimento para programadores e designers.
 
-Nossas referências de API estão organizadas em torno dos **recursos** principais do sistema (ex: Usuários, Projetos, etc.). Cada seção descreve:
+## Autenticação: O Token de Acesso
 
-* Os **endpoints** disponíveis para cada recurso.
-* Os **parâmetros** de requisição necessários.
-* Os **códigos de resposta** HTTP.
-* **Exemplos de requisição e resposta** em formatos comuns, como JSON.
+Para acessar qualquer método da API, você **sempre** deverá informar o seu token de acesso através do parâmetro `token`.
 
-### Autenticação
+- **`token`**: O token é uma chave secreta de acesso à API e deve ser solicitada ao nosso suporte.
 
-Todas as requisições à API devem ser autenticadas. Para isso, inclua sua chave de API no cabeçalho de autorização de cada chamada, utilizando o esquema `Bearer`.
+:::danger ATENÇÃO: Segurança do Token
+Este token **nunca deve ser exposto ao usuário final** (no código front-end, como JavaScript).
 
-**Exemplo de Cabeçalho:**
-`Authorization: Bearer SUA_CHAVE_DE_API`
+Se você for utilizar nossa API em uma aplicação web, faça as requisições do seu front-end para o seu próprio back-end (server-side) e, de lá, faça as chamadas para a nossa API, incluindo o token. Este cuidado garante a segurança das suas informações.
+:::
 
-### Base URL
+## Estrutura da Documentação
 
-O endereço base para todas as chamadas da API é:
-`https://api.guiareais.com/v1`
+Este documento está organizado por **entidades** que podem ser consultadas pela nossa API. Cada entidade tem:
 
-Navegue pelos recursos na barra lateral para encontrar o endpoint que você precisa e comece a construir!
+- **Atributos:** As informações retornadas em cada consulta.
+- **Parâmetros:** Os filtros que você pode usar nas pesquisas.
+- **Métodos:** As URLs e funções específicas para obter os dados.
+
+As entidades disponíveis são:
+
+- **[Imóvel](./imovel)**
+- **[Empreendimento](./empreendimento)**
+- **[Localização](./localizacao)**
+- **[Empresa](./empresa)**
