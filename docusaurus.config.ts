@@ -118,21 +118,21 @@ const config: Config = {
           ],
         },
         {
-          title: 'Comunidade',
+          title: 'Redes Sociais',
           items: [
-            { label: 'Stack Overflow', href: 'https://stackoverflow.com/questions/tagged/docusaurus' },
-            { label: 'Discord', href: 'https://discordapp.com/invite/docusaurus' },
+            { label: 'Instagram', href: 'https://www.instagram.com/realestateaiplanner/' },
+            { label: 'Linkedin', href: 'https://www.linkedin.com/company/real-estate-ai-planner' },
           ],
         },
         {
           title: 'Mais',
           items: [
             { label: 'Blog', to: '/blog' },
-            { label: 'GitHub', href: 'https://github.com/ian-cunha/guia-reais' },
+            { label: 'Site', href: 'http://realestateaiplanner.com.br/' },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Guia Reais. Construído com Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Real Estate Ai Planner LTDA.`,
     },
     prism: {
       theme: prismThemes.github,
