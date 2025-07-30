@@ -17,9 +17,6 @@ collections:
     show_preview_links: true
     create: true
     slug: "{{category}}/{{slug}}"
-    view_groups:
-      - label: "Categorias"
-        field: "category"
     fields:
       - { label: "Categoria (Nome da Pasta)", name: "category", widget: "string" }
       - { label: "Título", name: "title", widget: "string" }
@@ -31,9 +28,6 @@ collections:
     show_preview_links: true
     create: true
     slug: "{{category}}/{{slug}}"
-    view_groups:
-      - label: "Categorias"
-        field: "category"
     fields:
       - { label: "Categoria (Nome da Pasta)", name: "category", widget: "string" }
       - { label: "Título do Endpoint", name: "title", widget: "string" }
