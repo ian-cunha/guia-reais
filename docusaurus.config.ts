@@ -71,9 +71,8 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'RE.AI.s Docs',
+      title: 'Guia RE.AI.s',
       logo: {
         alt: 'RE.AI.s',
         src: 'img/logo.svg',
