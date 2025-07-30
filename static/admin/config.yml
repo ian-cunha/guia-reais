@@ -37,8 +37,6 @@ collections:
     folder: "docs/tutoriais"
     create: true
     slug: "{{category}}/{{slug}}"
-    nested:
-      depth: 100
     fields:
       - label: "Categoria"
         name: "category"
@@ -60,8 +58,6 @@ collections:
     folder: "docs/api-referencias"
     create: true
     slug: "{{category}}/{{slug}}"
-    nested:
-      depth: 100
     fields:
       - label: "Categoria"
         name: "category"
