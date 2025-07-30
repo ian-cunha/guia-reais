@@ -1,34 +1,33 @@
-locale: 'pt'
-
 backend:
   name: git-gateway
   branch: main
-
-media_folder: "static/img/docs"
-public_folder: "/img/docs"
-
-experimental:
-  file_tree_view: true
-
+publish_mode: editorial_workflow
+media_folder: "static/img"
+public_folder: "/img"
 collections:
-  - name: "tutoriais"
-    label: "📄 Tutoriais"
+  - name: "posts"
+    label: "Tutoriais"
     folder: "docs/tutoriais"
-    show_preview_links: true
     create: true
     slug: "{{category}}/{{slug}}"
+    view_groups:
+      - label: Categoria
+        field: category
     fields:
-      - { label: "Categoria (Nome da Pasta)", name: "category", widget: "string" }
+      - { label: "Categoria", name: "category", widget: "string" }
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
-
-  - name: "api_referencias"
-    label: "⚙️ API Referências"
+      - { label: "Posição na Barra Lateral", name: "sidebar_position", widget: "number" }
+      - { label: "Corpo", name: "body", widget: "markdown" }
+  - name: "posts-2"
+    label: "API Referências"
     folder: "docs/api-referencias"
-    show_preview_links: true
     create: true
     slug: "{{category}}/{{slug}}"
+    view_groups:
+      - label: Categoria
+        field: category
     fields:
-      - { label: "Categoria (Nome da Pasta)", name: "category", widget: "string" }
-      - { label: "Título do Endpoint", name: "title", widget: "string" }
-      - { label: "Descrição da API", name: "body", widget: "markdown" }
+      - { label: "Categoria", name: "category", widget: "string" }
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Posição na Barra Lateral", name: "sidebar_position", widget: "number" }
+      - { label: "Corpo", name: "body", widget: "markdown" }

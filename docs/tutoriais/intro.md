@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+category: "Início"
 title: Bem-vindo à Documentação
 ---
 
