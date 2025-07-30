@@ -1,0 +1,18 @@
+{
+    "tutorial_categories": [
+        {
+            "name": "Início"
+        },
+        {
+            "name": "Primeiros Passos"
+        }
+    ],
+    "api_categories": [
+        {
+            "name": "Autenticação"
+        },
+        {
+            "name": "Endpoints Principais"
+        }
+    ]
+}

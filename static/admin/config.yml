@@ -6,6 +6,32 @@ publish_mode: editorial_workflow
 media_folder: "static/img"
 public_folder: "/img"
 collections:
+  # ===================================================================
+  # COLEÇÃO PARA GERENCIAR AS CATEGORIAS
+  # ===================================================================
+  - name: "settings"
+    label: "⚙️ Gerenciar Categorias"
+    files:
+      - label: "Listas de Categorias"
+        name: "categories"
+        file: "src/data/categories.json"
+        fields:
+          - label: "Categorias de Tutoriais"
+            name: "tutorial_categories"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Nome da Categoria", name: "name", widget: "string" }
+          - label: "Categorias de API"
+            name: "api_categories"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Nome da Categoria", name: "name", widget: "string" }
+
+  # ===================================================================
+  # COLEÇÃO DE TUTORIAIS
+  # ===================================================================
   - name: "posts"
     label: "Tutoriais"
     folder: "docs/tutoriais"
@@ -15,10 +41,21 @@ collections:
       - label: Categoria
         field: category
     fields:
-      - { label: "Categoria", name: "category", widget: "string" }
+      - label: "Categoria"
+        name: "category"
+        widget: "relation"
+        collection: "settings"
+        file: "categories"
+        search_fields: ["tutorial_categories.*.name"]
+        display_fields: ["tutorial_categories.*.name"]
+        value_field: "tutorial_categories.*.name"
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Posição na Barra Lateral", name: "sidebar_position", widget: "number" }
       - { label: "Corpo", name: "body", widget: "markdown" }
+
+  # ===================================================================
+  # COLEÇÃO DE API REFERÊNCIAS
+  # ===================================================================
   - name: "posts-2"
     label: "API Referências"
     folder: "docs/api-referencias"
@@ -28,7 +65,14 @@ collections:
       - label: Categoria
         field: category
     fields:
-      - { label: "Categoria", name: "category", widget: "string" }
+      - label: "Categoria"
+        name: "category"
+        widget: "relation"
+        collection: "settings"
+        file: "categories"
+        search_fields: ["api_categories.*.name"]
+        display_fields: ["api_categories.*.name"]
+        value_field: "api_categories.*.name"
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Posição na Barra Lateral", name: "sidebar_position", widget: "number" }
       - { label: "Corpo", name: "body", widget: "markdown" }
