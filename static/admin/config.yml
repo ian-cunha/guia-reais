@@ -7,12 +7,19 @@ backend:
 media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
+experimental:
+  file_tree_view: true
+
 collections:
   - name: "tutoriais"
     label: "📄 Tutoriais"
     folder: "docs/tutoriais"
+    show_preview_links: true
     create: true
     slug: "{{category}}/{{slug}}"
+    view_groups:
+      - label: "Categorias"
+        field: "category"
     fields:
       - { label: "Categoria (Nome da Pasta)", name: "category", widget: "string" }
       - { label: "Título", name: "title", widget: "string" }
@@ -21,8 +28,12 @@ collections:
   - name: "api_referencias"
     label: "⚙️ API Referências"
     folder: "docs/api-referencias"
+    show_preview_links: true
     create: true
     slug: "{{category}}/{{slug}}"
+    view_groups:
+      - label: "Categorias"
+        field: "category"
     fields:
       - { label: "Categoria (Nome da Pasta)", name: "category", widget: "string" }
       - { label: "Título do Endpoint", name: "title", widget: "string" }
