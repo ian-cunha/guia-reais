@@ -10,7 +10,7 @@ collections:
   # COLEÇÃO PARA GERENCIAR AS CATEGORIAS
   # ===================================================================
   - name: "settings"
-    label: "⚙️ Gerenciar Categorias"
+    label: "Gerenciar Categorias"
     files:
       - label: "Listas de Categorias"
         name: "categories"
@@ -37,9 +37,8 @@ collections:
     folder: "docs/tutoriais"
     create: true
     slug: "{{category}}/{{slug}}"
-    view_groups:
-      - label: Categoria
-        field: category
+    nested:
+      depth: 100
     fields:
       - label: "Categoria"
         name: "category"
@@ -61,9 +60,8 @@ collections:
     folder: "docs/api-referencias"
     create: true
     slug: "{{category}}/{{slug}}"
-    view_groups:
-      - label: Categoria
-        field: category
+    nested:
+      depth: 100
     fields:
       - label: "Categoria"
         name: "category"
