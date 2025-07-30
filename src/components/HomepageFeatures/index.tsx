@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react';
+import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
@@ -11,38 +11,38 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Gestão Centralizada e Inteligente',
+    Svg: require('@site/static/img/feature_management.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Tenha controle total dos seus imóveis, clientes e negócios em uma única
+        plataforma. Visualize tudo em tempo real, do painel de controle ao mapa.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Marketing e Vendas Automatizados',
+    Svg: require('@site/static/img/feature_marketing.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Crie seu site de imóveis em minutos e integre seus anúncios com os
+        maiores portais. Gerencie seu funil de vendas e não perca oportunidades.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Mobilidade e Atendimento Premium',
+    Svg: require('@site/static/img/feature_mobile.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Use nosso aplicativo para ter tudo na palma da mão. Atenda clientes
+        via WhatsApp, compartilhe imóveis e gerencie roteiros de visitas.
       </>
     ),
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({ title, Svg, description }: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

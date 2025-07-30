@@ -1,30 +1,115 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Estilos Globais com a nova paleta de cores.
+ * Roxo Principal: #4D18A3
+ * Laranja de Destaque: #ED5B00
  */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #4D18A3;
+  --ifm-color-primary-dark: #451692;
+  --ifm-color-primary-darker: #411488;
+  --ifm-color-primary-darkest: #361070;
+  --ifm-color-primary-light: #551ab4;
+  --ifm-color-primary-lighter: #591bbf;
+  --ifm-color-primary-lightest: #6a32d1;
+
+  --ifm-color-secondary: #ED5B00;
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.navbar__title,
+.navbar__link {
+  color: #2e2e2e;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
+}
+
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #8555e0;
+  --ifm-color-primary-dark: #6e37d9;
+  --ifm-color-primary-darker: #6428d5;
+  --ifm-color-primary-darkest: #4e14b8;
+  --ifm-color-primary-light: #9c73e7;
+  --ifm-color-primary-lighter: #ab8aed;
+  --ifm-color-primary-lightest: #c6b0f5;
+
+  --ifm-color-secondary: #ED5B00;
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  .navbar {
+    background: linear-gradient(90deg, #4D18A3, #260c55);
+    box-shadow: none;
+  }
+
+  .navbar__title,
+  .navbar__link {
+    color: white;
+  }
+
+  .navbar__link:hover {
+    color: #eeeeee;
+  }
+}
+
+[class*='heroBanner'] {
+  background: linear-gradient(145deg, var(--ifm-color-primary), #260c55);
+  color: white;
+}
+
+[class*='heroBanner'] .button {
+  background-color: var(--ifm-color-secondary);
+  color: white;
+  border: none;
+}
+
+[class*='heroBanner'] .button:hover {
+  background-color: #d45200;
+}
+
+.tabs-container .tabs {
+  border-bottom-color: var(--ifm-color-secondary);
+}
+
+.tabs__item--active {
+  color: var(--ifm-color-secondary);
+  border-color: var(--ifm-color-secondary);
+}
+
+a.theme-edit-this-page {
+  color: var(--ifm-color-secondary);
+}
+
+a.theme-edit-this-page:hover {
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='light'] .footer {
+  background-color: #f4f0fa;
+  border-top: 1px solid #e9e2f5;
+}
+
+[data-theme='light'] .footer .footer__title {
+  color: #1c1e21;
+}
+
+[data-theme='light'] .footer .footer__link-item {
+  color: var(--ifm-color-primary);
+}
+
+[data-theme='light'] .footer .footer__link-item:hover {
+  color: var(--ifm-color-primary-dark);
+}
+
+[data-theme='light'] .footer .footer__copyright {
+  color: #555;
 }

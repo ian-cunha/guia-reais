@@ -1,18 +1,25 @@
-# Em static/admin/config.yml
-
 backend:
-  name: git-gateway # Conecta com o serviço de autenticação da Netlify
-  branch: main # ou 'master', dependendo do seu branch principal
+  name: git-gateway
+  branch: main
 
-media_folder: "static/img/docs" # Onde as imagens enviadas pelo editor serão salvas
-public_folder: "/img/docs"      # Como o Docusaurus encontrará essas imagens
+media_folder: "static/img/docs"
+public_folder: "/img/docs"
 
 collections:
-  - name: "docs" # Um identificador para o tipo de conteúdo
-    label: "Documentação" # O nome que aparecerá no menu do CMS para a equipe
-    folder: "docs" # A PASTA ONDE OS ARQUIVOS SERÃO CRIADOS. Essencial!
-    create: true # Permite criar novos documentos
-    slug: "{{slug}}" # Usa o título do artigo para gerar o nome do arquivo
-    fields: # Define os campos do editor de texto
+  - name: "documentacao"
+    label: "📄 Documentação"
+    folder: "docs/documentacao"
+    create: true
+    slug: "{{slug}}"
+    fields:
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  - name: "api_referencias"
+    label: "⚙️ API Referências"
+    folder: "docs/api-referencias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título do Endpoint", name: "title", widget: "string" }
+      - { label: "Descrição da API", name: "body", widget: "markdown" }

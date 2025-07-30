@@ -1,7 +1,7 @@
 ---
-title: Markdown page example
+title: Exemplo de página Markdown
 ---
 
-# Markdown page example
+# Exemplo de página Markdown
 
-You don't need React to write simple standalone pages.
+Você não precisa de React para escrever páginas simples e independentes.

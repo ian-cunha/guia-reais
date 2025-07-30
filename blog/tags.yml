@@ -1,19 +1,7 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
+boas-vindas:
+  label: Boas-Vindas 🎉
+  description: Posts de introdução e anúncios importantes sobre o ecossistema RE.AI.s.
 
-hello:
-  label: Hello
-  permalink: /hello
-  description: Hello tag description
-
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
-  description: Docusaurus tag description
-
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+novidades:
+  label: Novidades e Atualizações
+  description: Fique por dentro de todas as novas funcionalidades, lançamentos e melhorias em nossos produtos.
