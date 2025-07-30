@@ -12,7 +12,7 @@
   --ifm-color-primary-light: #551ab4;
   --ifm-color-primary-lighter: #591bbf;
   --ifm-color-primary-lightest: #6a32d1;
-  --ifm-menu-color-active: #ED5B00;
+  --ifm-menu-color-active: #4D18A3;
 
   --ifm-color-secondary: #ED5B00;
 
@@ -20,18 +20,12 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-.navbar {
-  background-color: #ffffff;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.navbar__title,
-.navbar__link {
-  color: #2e2e2e;
-}
-
-.navbar__link:hover {
+[data-theme='light'] .navbar__link:hover {
   color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .navbar__link:hover {
+  color: var(--ifm-color-secondary);
 }
 
 [data-theme='dark'] {
@@ -44,23 +38,11 @@
   --ifm-color-primary-lightest: #c6b0f5;
   --ifm-breadcrumb-color-active: #ffffff;
 
+  --ifm-menu-color-active: #ED5B00;
+  --ifm-navbar-link-hover-color: #ED5B00;
   --ifm-color-secondary: #ED5B00;
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
-
-  .navbar {
-    background: linear-gradient(90deg, #4D18A3, #260c55);
-    box-shadow: none;
-  }
-
-  .navbar__title,
-  .navbar__link {
-    color: white;
-  }
-
-  .navbar__link:hover {
-    color: #eeeeee;
-  }
 }
 
 [class*='heroBanner'] {
