@@ -12,6 +12,7 @@
   --ifm-color-primary-light: #551ab4;
   --ifm-color-primary-lighter: #591bbf;
   --ifm-color-primary-lightest: #6a32d1;
+  --ifm-menu-color-active: #ED5B00;
 
   --ifm-color-secondary: #ED5B00;
 
@@ -41,6 +42,7 @@
   --ifm-color-primary-light: #9c73e7;
   --ifm-color-primary-lighter: #ab8aed;
   --ifm-color-primary-lightest: #c6b0f5;
+  --ifm-breadcrumb-color-active: #ffffff;
 
   --ifm-color-secondary: #ED5B00;
 
@@ -103,7 +105,7 @@ a.theme-edit-this-page:hover {
 }
 
 [data-theme='light'] .footer .footer__link-item {
-  color: var(--ifm-color-primary);
+  color: #1c1e21;
 }
 
 [data-theme='light'] .footer .footer__link-item:hover {
@@ -112,4 +114,20 @@ a.theme-edit-this-page:hover {
 
 [data-theme='light'] .footer .footer__copyright {
   color: #555;
+}
+
+[data-theme='dark'] .footer .footer__title {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .footer .footer__link-item {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .footer .footer__link-item:hover {
+  color: var(--ifm-color-secondary);
+}
+
+[data-theme='dark'] .footer .footer__copyright {
+  color: #ffffff;
 }

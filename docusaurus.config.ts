@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'RE.AI.s: Documentação e API',
+  title: 'Guia RE.AI.s',
   tagline: 'Seu guia completo para integrar e dominar nossa plataforma.',
   favicon: 'img/favicon.ico',
 
@@ -73,7 +73,7 @@ const config: Config = {
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'Guia RE.AI.s',
+      title: 'RE.AI.s Docs',
       logo: {
         alt: 'RE.AI.s',
         src: 'img/logo.svg',
