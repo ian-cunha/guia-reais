@@ -1,19 +1,27 @@
-[class*='Button-button-default-primary'] {
+/* --- CORES PRINCIPAIS ---
+  Laranja Principal: #ED5B00
+  Roxo Secundário: #4D18A3
+*/
+
+[role="main"] button,
+button[class*="publish"] {
     background-color: #ED5B00 !important;
 }
 
-[class*='AppHeader-header-button'],
-[class*='CollectionTop-collectionTop-button'] {
+header[class*="AppHeader"] {
     background-color: #4D18A3 !important;
 }
 
-[class*='AppHeader-header-button-icon'],
-[class*='AppHeader-header-button-label'],
-[class*='CollectionTop-collectionTop-button-label'] {
+a[class*='CollectionTop-collectionTop-button'] {
+    background-color: #4D18A3 !important;
+}
+
+header[class*="AppHeader"] button span,
+a[class*='CollectionTop-collectionTop-button'] {
     color: white !important;
 }
 
-[class*='Collection-collection-link-active'] {
+ul[class*='Collection-collection-list'] a[class*='-active'] {
     border-left-color: #ED5B00 !important;
     color: #ED5B00 !important;
 }
