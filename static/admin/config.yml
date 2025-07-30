@@ -12,22 +12,18 @@ collections:
     label: "📄 Tutoriais"
     folder: "docs/tutoriais"
     create: true
-    slug: "{{slug}}"
-    nested:
-      depth: 3
-      summary: "{{title}}"
+    slug: "{{fields.subfolder}}/{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
+      - { label: "Subpasta", name: "subfolder", widget: "folder", default: "geral" }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
 
   - name: "api_referencias"
     label: "⚙️ API Referências"
     folder: "docs/api-referencias"
     create: true
-    slug: "{{slug}}"
-    nested:
-      depth: 3
-      summary: "{{title}}"
+    slug: "{{fields.subfolder}}/{{slug}}"
     fields:
       - { label: "Título do Endpoint", name: "title", widget: "string" }
+      - { label: "Subpasta", name: "subfolder", widget: "folder", default: "v1" }
       - { label: "Descrição da API", name: "body", widget: "markdown" }
