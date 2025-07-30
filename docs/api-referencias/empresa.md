@@ -1,6 +1,6 @@
 ---
 sidebar_position: 5
-title: Entidade: Empresa
+title: "Entidade: Empresa"
 ---
 
 # Entidade: Empresa

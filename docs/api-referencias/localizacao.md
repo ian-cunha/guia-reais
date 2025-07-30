@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-title: Entidade: Localização
+title: "Entidade: Localização"
 ---
 
 # Entidade: Localização

@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title: Entidade: Imóvel
+title: "Entidade: Imóvel"
 ---
 
 # Entidade: Imóvel
