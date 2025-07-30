@@ -1,27 +1,115 @@
-/* --- CORES PRINCIPAIS ---
-  Laranja Principal: #ED5B00
-  Roxo Secundário: #4D18A3
+/*
+============================================================
+TEMA COMPLETO PARA O PAINEL DE ADMINISTRAÇÃO RE.AI.s
+============================================================
 */
 
-[role="main"] button,
-button[class*="publish"] {
-    background-color: #ED5B00 !important;
+:root {
+  --reais-laranja: #ED5B00;
+  --reais-roxo: #4D18A3;
+  --reais-roxo-escuro: #260c55;
+  --reais-cinza-claro: #f4f5f7;
+  --reais-cinza-texto: #444;
 }
+
+body,
+button,
+input,
+textarea {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/*
+-------------------------------------------------
+  TELA DE LOGIN
+-------------------------------------------------
+*/
+
+[class*="Login-login-container"] {
+  background: linear-gradient(145deg, var(--reais-roxo), var(--reais-roxo-escuro)) !important;
+}
+
+[class*="Login-login-form"] {
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+[class*="Login-login-form"]::before {
+  content: '';
+  display: block;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto 20px;
+  background-image: url('/img/logo-reais-branco.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+[class*="Login-login-button"] {
+  background-color: var(--reais-laranja) !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
+/*
+-------------------------------------------------
+  PAINEL PRINCIPAL (DEPOIS DO LOGIN)
+-------------------------------------------------
+*/
 
 header[class*="AppHeader"] {
-    background-color: #4D18A3 !important;
+  background: var(--reais-roxo) !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
 a[class*='CollectionTop-collectionTop-button'] {
-    background-color: #4D18A3 !important;
+  background-color: var(--reais-laranja) !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
 }
 
-header[class*="AppHeader"] button span,
-a[class*='CollectionTop-collectionTop-button'] {
-    color: white !important;
+div[class*="Sidebar-sidebar-container"] {
+  background: var(--reais-cinza-claro) !important;
+  border-right: 1px solid #e0e2e5 !important;
 }
 
 ul[class*='Collection-collection-list'] a[class*='-active'] {
-    border-left-color: #ED5B00 !important;
-    color: #ED5B00 !important;
+  border-left-color: var(--reais-laranja) !important;
+  color: var(--reais-laranja) !important;
+  background-color: white !important;
+  font-weight: 600 !important;
+}
+
+/*
+-------------------------------------------------
+  TELA DE EDIÇÃO (EDITOR DE CONTEÚDO)
+-------------------------------------------------
+*/
+
+button[class*="publish-button"] {
+  background-color: var(--reais-laranja) !important;
+  border-radius: 8px !important;
+}
+
+div[class*="Field-field"] {
+  background: white !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+  border: 1px solid #e0e2e5 !important;
+  margin-bottom: 20px !important;
+}
+
+input[class*="Input-input"],
+textarea[class*="raw-editor-textarea"] {
+  border: 1px solid #ccc !important;
+  border-radius: 6px !important;
+  padding: 10px !important;
+  transition: border-color 0.2s;
+}
+
+input[class*="Input-input"]:focus,
+textarea[class*="raw-editor-textarea"]:focus {
+  border-color: var(--reais-roxo) !important;
+  box-shadow: 0 0 0 2px rgba(77, 24, 163, 0.2) !important;
 }
