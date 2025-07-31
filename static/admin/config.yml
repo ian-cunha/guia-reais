@@ -1,77 +1,28 @@
 locale: 'pt'
+
 backend:
   name: git-gateway
   branch: main
 
-media_folder: "static/img"
-public_folder: "/img"
+publish_mode: editorial_workflow
+media_folder: "static/img/docs"
+public_folder: "/img/docs"
 
 collections:
-  - name: "tutoriais_categories"
-    label: "Tutoriais - Categorias"
-    label_singular: "Categoria de Tutorial"
-    folder: "docs/tutoriais"
-    create: true
-    path: "{{slug}}/_category_.json"
-    slug: "{{slug}}"
-    identifier_field: "label"
-    summary: "{{label}} (Posição: {{position}})"
-    fields:
-      - { label: "Título da Categoria", name: "label", widget: "string" }
-      - { label: "Posição na Barra Lateral", name: "position", widget: "number", default: 10 }
-      - { label: "Link", name: "link", widget: "hidden", default: { type: "generated-index" } }
-
-  - name: "tutoriais_docs"
-    label: "Tutoriais - Documentos"
-    label_singular: "Documento de Tutorial"
+  - name: "tutoriais"
+    label: "Tutoriais"
     folder: "docs/tutoriais"
     create: true
     slug: "{{slug}}"
-    path: "{{category}}/{{slug}}.md"
     fields:
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
-      - name: "category"
-        label: "Categoria do Tutorial"
-        widget: "relation"
-        collection: "tutoriais_categories"
-        search_fields: ["label"]
-        value_field: "{{slug}}"
-        display_fields: ["label"]
-        required: false
-        hint: "Deixe em branco para criar o documento na raiz de Tutoriais."
 
-  # --- SEÇÃO DE API REFERÊNCIAS ---
-  - name: "api_categories"
-    label: "API - Categorias"
-    label_singular: "Categoria de API"
-    folder: "docs/api-referencias"
-    create: true
-    path: "{{slug}}/_category_.json"
-    slug: "{{slug}}"
-    identifier_field: "label"
-    summary: "{{label}} (Posição: {{position}})"
-    fields:
-      - { label: "Título da Categoria", name: "label", widget: "string" }
-      - { label: "Posição na Barra Lateral", name: "position", widget: "number", default: 10 }
-      - { label: "Link", name: "link", widget: "hidden", default: { type: "generated-index" } }
-
-  - name: "api_docs"
-    label: "API - Documentos"
-    label_singular: "Documento de API"
+  - name: "api_referencias"
+    label: "API Referências"
     folder: "docs/api-referencias"
     create: true
     slug: "{{slug}}"
-    path: "{{category}}/{{slug}}.md"
     fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
-      - name: "category"
-        label: "Categoria da API"
-        widget: "relation"
-        collection: "api_categories"
-        search_fields: ["label"]
-        value_field: "{{slug}}"
-        display_fields: ["label"]
-        required: false
-        hint: "Deixe em branco para criar o documento na raiz de API Referências."
+      - { label: "Título do Endpoint", name: "title", widget: "string" }
+      - { label: "Descrição da API", name: "body", widget: "markdown" }
