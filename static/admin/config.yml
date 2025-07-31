@@ -4,6 +4,7 @@ backend:
   name: git-gateway
   branch: main
 
+publish_mode: editorial_workflow
 media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
@@ -12,147 +13,16 @@ collections:
     label: "Tutoriais"
     folder: "docs/tutoriais"
     create: true
-    # Configuração para criar subpastas por categoria automaticamente
-    slug: "{{category}}/{{slug}}"
-    path: "{{category}}/{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { 
-          label: "Categoria", 
-          name: "category", 
-          widget: "string",
-          default: "geral",
-          hint: "Digite o nome da categoria (será criada automaticamente como pasta). Use apenas letras minúsculas, números e hífens."
-        }
-      - { 
-          label: "Posição na Sidebar", 
-          name: "sidebar_position", 
-          widget: "number", 
-          required: false,
-          hint: "Ordem de exibição na barra lateral (opcional)"
-        }
-      - { 
-          label: "Descrição", 
-          name: "description", 
-          widget: "text", 
-          required: false,
-          hint: "Breve descrição do tutorial"
-        }
-      - { 
-          label: "Tags", 
-          name: "tags", 
-          widget: "list", 
-          required: false,
-          hint: "Tags para categorização"
-        }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
 
   - name: "api_referencias"
     label: "API Referências"
     folder: "docs/api-referencias"
     create: true
-    # Configuração para criar subpastas por categoria de API automaticamente
-    slug: "{{category}}/{{slug}}"
-    path: "{{category}}/{{slug}}"
+    slug: "{{slug}}"
     fields:
       - { label: "Título do Endpoint", name: "title", widget: "string" }
-      - { 
-          label: "Categoria", 
-          name: "category", 
-          widget: "string",
-          default: "geral",
-          hint: "Digite o nome da categoria da API (será criada automaticamente como pasta). Use apenas letras minúsculas, números e hífens."
-        }
-      - { 
-          label: "Posição na Sidebar", 
-          name: "sidebar_position", 
-          widget: "number", 
-          required: false,
-          hint: "Ordem de exibição na barra lateral (opcional)"
-        }
-      - { 
-          label: "Método HTTP", 
-          name: "method", 
-          widget: "select", 
-          options: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-          required: false
-        }
-      - { 
-          label: "Endpoint URL", 
-          name: "endpoint", 
-          widget: "string", 
-          required: false,
-          hint: "Ex: /api/v1/users"
-        }
       - { label: "Descrição da API", name: "body", widget: "markdown" }
-
-  # Gerenciar páginas iniciais dos plugins diretamente pelo admin
-  - name: "paginas_iniciais"
-    label: "Páginas Iniciais"
-    files:
-      - name: "intro_tutoriais"
-        label: "Intro - Tutoriais"
-        file: "docs/tutoriais/intro.md"
-        fields:
-          - { label: "Título", name: "title", widget: "string", default: "Introdução aos Tutoriais" }
-          - { 
-              label: "Posição na Sidebar", 
-              name: "sidebar_position", 
-              widget: "number", 
-              default: 1
-            }
-          - { 
-              label: "Descrição", 
-              name: "description", 
-              widget: "text", 
-              required: false,
-              hint: "Descrição que aparece no SEO"
-            }
-          - { label: "Conteúdo", name: "body", widget: "markdown" }
-      
-      - name: "intro_api"
-        label: "Intro - API Referências"
-        file: "docs/api-referencias/intro.md"
-        fields:
-          - { label: "Título", name: "title", widget: "string", default: "Referências da API" }
-          - { 
-              label: "Posição na Sidebar", 
-              name: "sidebar_position", 
-              widget: "number", 
-              default: 1
-            }
-          - { 
-              label: "Descrição", 
-              name: "description", 
-              widget: "text", 
-              required: false,
-              hint: "Descrição que aparece no SEO"
-            }
-          - { label: "Conteúdo", name: "body", widget: "markdown" }
-
-  # Gerenciar configurações de categoria diretamente pelo admin
-  - name: "configuracoes_categoria"
-    label: "Configurações de Categoria"
-    folder: "docs/categoria-configs"
-    create: true
-    slug: "{{nome_categoria}}-config"
-    extension: "json"
-    format: "json"
-    fields:
-      - { label: "Nome da Categoria", name: "nome_categoria", widget: "string" }
-      - { label: "Label de Exibição", name: "label", widget: "string" }
-      - { label: "Posição", name: "position", widget: "number", required: false }
-      - { 
-          label: "Descrição", 
-          name: "description", 
-          widget: "text", 
-          required: false,
-          hint: "Descrição que aparece na página índice da categoria"
-        }
-      - { 
-          label: "Tipo", 
-          name: "tipo", 
-          widget: "select", 
-          options: ["tutorial", "api"],
-          hint: "Para qual seção é esta categoria"
-        }
