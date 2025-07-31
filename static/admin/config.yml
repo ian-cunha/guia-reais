@@ -4,6 +4,7 @@ backend:
   name: git-gateway
   branch: main
 
+
 media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
@@ -12,15 +13,16 @@ collections:
     label: "Tutoriais"
     folder: "docs/tutoriais"
     create: true
-    slug: "{{slug}}"
+    slug: "{{category}}/{{slug}}"
+    path: "{{category}}/{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
       - { 
           label: "Categoria", 
           name: "category", 
-          widget: "string", 
-          required: false,
-          hint: "Digite o nome da categoria ou deixe em branco"
+          widget: "string",
+          default: "geral",
+          hint: "Digite o nome da categoria (será usada como nome da pasta). Use apenas letras minúsculas, números e hífens. Ex: 'minha-categoria'"
         }
       - { 
           label: "Posição na Sidebar", 
@@ -49,15 +51,16 @@ collections:
     label: "API Referências"
     folder: "docs/api-referencias"
     create: true
-    slug: "{{slug}}"
+    slug: "{{category}}/{{slug}}"
+    path: "{{category}}/{{slug}}"
     fields:
       - { label: "Título do Endpoint", name: "title", widget: "string" }
       - { 
           label: "Categoria", 
           name: "category", 
-          widget: "string", 
-          required: false,
-          hint: "Digite o nome da categoria da API"
+          widget: "string",
+          default: "geral",
+          hint: "Digite o nome da categoria da API (será usada como nome da pasta). Use apenas letras minúsculas, números e hífens."
         }
       - { 
           label: "Posição na Sidebar", 
@@ -82,7 +85,6 @@ collections:
         }
       - { label: "Descrição da API", name: "body", widget: "markdown" }
 
-  # Para gerenciar páginas especiais como a página inicial
   - name: "docs_principais"
     label: "Documentação Principal"
     files:
@@ -110,42 +112,3 @@ collections:
               required: false
             }
           - { label: "Conteúdo", name: "body", widget: "markdown" }
-
-  # Coleção catch-all para outros documentos
-  - name: "outros_docs"
-    label: "Outros Documentos"
-    folder: "docs"
-    create: true
-    slug: "{{slug}}"
-    filter: {field: "collection", value: "outros"}
-    fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { 
-          label: "Categoria", 
-          name: "category", 
-          widget: "string", 
-          required: false
-        }
-      - { 
-          label: "Posição na Sidebar", 
-          name: "sidebar_position", 
-          widget: "number", 
-          required: false
-        }
-      - { 
-          label: "Coleção", 
-          name: "collection", 
-          widget: "hidden", 
-          default: "outros"
-        }
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
-
-  # Para gerenciar configurações do site
-  - name: "configuracoes"
-    label: "Configurações do Site"
-    files:
-      - name: "sidebar"
-        label: "Configuração da Sidebar"
-        file: "sidebars.js"
-        fields:
-          - { label: "Conteúdo do Arquivo", name: "body", widget: "code", default_language: "javascript" }
