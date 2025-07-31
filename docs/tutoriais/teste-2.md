@@ -1,7 +1,6 @@
 ---
 sidebar_position: 2
-category: Início
-title: Teste 2
+title: Teste 0
 ---
 # 📹 Tutorial: Como Utilizar o Painel de Controle do Sistema RE.AI.s
 

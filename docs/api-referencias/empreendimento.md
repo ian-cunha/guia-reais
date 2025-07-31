@@ -1,6 +1,5 @@
 ---
 sidebar_position: 3
-category: Início
 title: "Entidade: Empreendimento"
 ---
 

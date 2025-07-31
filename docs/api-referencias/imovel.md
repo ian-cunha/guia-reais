@@ -1,6 +1,5 @@
 ---
 sidebar_position: 2
-category: Início
 title: "Entidade: Imóvel"
 ---
 

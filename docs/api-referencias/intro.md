@@ -1,6 +1,5 @@
 ---
 sidebar_position: 1
-category: Início
 title: Início Rápido e Autenticação
 ---
 

@@ -1,6 +1,5 @@
 ---
 sidebar_position: 5
-category: Início
 title: "Entidade: Empresa"
 ---
 

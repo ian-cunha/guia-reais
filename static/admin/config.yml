@@ -7,27 +7,27 @@ media_folder: "static/img"
 public_folder: "/img"
 collections:
   # ===================================================================
-  # COLEÇÃO PARA GERENCIAR AS CATEGORIAS
+  # COLEÇÃO PARA GERENCIAR AS SUBPASTAS
   # ===================================================================
   - name: "settings"
     label: "Gerenciar Subpastas"
     files:
       - label: "Listas de Subpastas"
         name: "categories"
-        file: "src/data/categories.json"
+        file: "src/data/subpastas.json"
         fields:
           - label: "Subpastas de Tutoriais"
-            name: "tutorial_categories"
+            name: "tutorial_subpastas"
             widget: "list"
             summary: "{{fields.name}}"
             fields:
-              - { label: "Nome da Categoria", name: "name", widget: "string" }
+              - { label: "Nome da Subpasta", name: "name", widget: "string" }
           - label: "Subpastas de API"
-            name: "api_categories"
+            name: "api_subpastas"
             widget: "list"
             summary: "{{fields.name}}"
             fields:
-              - { label: "Nome da Categoria", name: "name", widget: "string" }
+              - { label: "Nome da Subpasta", name: "name", widget: "string" }
 
   # ===================================================================
   # COLEÇÃO DE TUTORIAIS
@@ -41,14 +41,17 @@ collections:
       - label: "Subpastas"
         field: "category"
     fields:
-      - label: "Categoria"
+      - label: "Subpasta"
         name: "category"
         widget: "relation"
         collection: "settings"
         file: "categories"
-        search_fields: ["tutorial_categories.*.name"]
-        display_fields: ["tutorial_categories.*.name"]
-        value_field: "tutorial_categories.*.name"
+        search_fields: ["tutorial_subpastas.*.name"]
+        display_fields: ["tutorial_subpastas.*.name"]
+        value_field: "tutorial_subpastas.*.name"
+        required: false
+        default: ""
+        hint: "Deixe em branco para postar na raiz da seção (sem subpasta)."
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Posição na Barra Lateral", name: "sidebar_position", widget: "number" }
       - { label: "Corpo", name: "body", widget: "markdown" }
@@ -65,14 +68,17 @@ collections:
       - label: "Subpastas"
         field: "category"
     fields:
-      - label: "Categoria"
+      - label: "Subpasta"
         name: "category"
         widget: "relation"
         collection: "settings"
         file: "categories"
-        search_fields: ["api_categories.*.name"]
-        display_fields: ["api_categories.*.name"]
-        value_field: "api_categories.*.name"
+        search_fields: ["api_subpastas.*.name"]
+        display_fields: ["api_subpastas.*.name"]
+        value_field: "api_subpastas.*.name"
+        required: false
+        default: ""
+        hint: "Deixe em branco para postar na raiz da seção (sem subpasta)."
       - { label: "Título", name: "title", widget: "string" }
       - { label: "Posição na Barra Lateral", name: "sidebar_position", widget: "number" }
       - { label: "Corpo", name: "body", widget: "markdown" }
