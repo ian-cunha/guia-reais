@@ -4,7 +4,6 @@ backend:
   name: git-gateway
   branch: main
 
-publish_mode: editorial_workflow
 media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
@@ -16,6 +15,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
+      - { label: "Categoria", name: "category", widget: "select", options: [], create: true, required: false, hint: "Deixe em branco para sem categoria" }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
 
   - name: "api_referencias"
@@ -25,4 +25,5 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Título do Endpoint", name: "title", widget: "string" }
+      - { label: "Categoria", name: "category", widget: "select", options: [], create: true, required: false, hint: "Deixe em branco para sem categoria" }
       - { label: "Descrição da API", name: "body", widget: "markdown" }
