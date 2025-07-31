@@ -4,6 +4,7 @@ backend:
   name: git-gateway
   branch: main
 
+publish_mode: editorial_workflow
 media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
@@ -15,7 +16,13 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Categoria", name: "category", widget: "select", options: [], create: true, required: false, hint: "Deixe em branco para sem categoria" }
+      - { 
+          label: "Categoria", 
+          name: "category", 
+          widget: "string", 
+          required: false,
+          hint: "Digite o nome da categoria ou deixe em branco"
+        }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
 
   - name: "api_referencias"
@@ -25,5 +32,31 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Título do Endpoint", name: "title", widget: "string" }
-      - { label: "Categoria", name: "category", widget: "select", options: [], create: true, required: false, hint: "Deixe em branco para sem categoria" }
+      - { 
+          label: "Categoria", 
+          name: "category", 
+          widget: "string", 
+          required: false,
+          hint: "Digite o nome da categoria da API"
+        }
       - { label: "Descrição da API", name: "body", widget: "markdown" }
+
+  - name: "configuracoes"
+    label: "Configurações"
+    files:
+      - name: "categorias"
+        label: "Categorias"
+        file: "data/categorias.yml"
+        fields:
+          - label: "Categorias de Tutoriais"
+            name: "tutoriais"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Descrição", name: "descricao", widget: "text", required: false }
+          - label: "Categorias de API"
+            name: "api"
+            widget: "list"
+            fields:
+              - { label: "Nome", name: "nome", widget: "string" }
+              - { label: "Descrição", name: "descricao", widget: "text", required: false }
