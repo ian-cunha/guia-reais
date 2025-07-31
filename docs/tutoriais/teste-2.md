@@ -1,5 +1,7 @@
 ---
-title: Teste 2
+category: ""
+sidebar_position: 2
+title: Teste 0
 ---
 # 📹 Tutorial: Como Utilizar o Painel de Controle do Sistema RE.AI.s
 
@@ -82,6 +84,6 @@ Se ficou com alguma dúvida, deixe um comentário no vídeo ou entre em contato 
 
 ---
 
-### 🔗 Link direto para o vídeo:  
-👉 [https://www.youtube.com/watch?v=ID_DO_VIDEO](https://www.youtube.com/watch?v=ID_DO_VIDEO)
+### 🔗 Link direto para o vídeo  
 
+👉 [https://www.youtube.com/watch?v=ID_DO_VIDEO](https://www.youtube.com/watch?v=ID_DO_VIDEO)
