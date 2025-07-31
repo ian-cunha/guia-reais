@@ -1,5 +1,5 @@
 ---
-category: ""
+category: Cadastro de imóveis
 title: Como Cadastrar um Imóvel no Sistema RE.AI.s (Exemplo)
 sidebar_position: 1
 ---
