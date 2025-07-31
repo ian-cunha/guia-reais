@@ -4,7 +4,6 @@ backend:
   name: git-gateway
   branch: main
 
-publish_mode: editorial_workflow
 media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
@@ -23,6 +22,27 @@ collections:
           required: false,
           hint: "Digite o nome da categoria ou deixe em branco"
         }
+      - { 
+          label: "Posição na Sidebar", 
+          name: "sidebar_position", 
+          widget: "number", 
+          required: false,
+          hint: "Ordem de exibição na barra lateral (opcional)"
+        }
+      - { 
+          label: "Descrição", 
+          name: "description", 
+          widget: "text", 
+          required: false,
+          hint: "Breve descrição do tutorial"
+        }
+      - { 
+          label: "Tags", 
+          name: "tags", 
+          widget: "list", 
+          required: false,
+          hint: "Tags para categorização"
+        }
       - { label: "Conteúdo", name: "body", widget: "markdown" }
 
   - name: "api_referencias"
@@ -39,24 +59,93 @@ collections:
           required: false,
           hint: "Digite o nome da categoria da API"
         }
+      - { 
+          label: "Posição na Sidebar", 
+          name: "sidebar_position", 
+          widget: "number", 
+          required: false,
+          hint: "Ordem de exibição na barra lateral (opcional)"
+        }
+      - { 
+          label: "Método HTTP", 
+          name: "method", 
+          widget: "select", 
+          options: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+          required: false
+        }
+      - { 
+          label: "Endpoint URL", 
+          name: "endpoint", 
+          widget: "string", 
+          required: false,
+          hint: "Ex: /api/v1/users"
+        }
       - { label: "Descrição da API", name: "body", widget: "markdown" }
 
-  - name: "configuracoes"
-    label: "Configurações"
+  # Para gerenciar páginas especiais como a página inicial
+  - name: "docs_principais"
+    label: "Documentação Principal"
     files:
-      - name: "categorias"
-        label: "Categorias"
-        file: "data/categorias.yml"
+      - name: "index"
+        label: "Página Inicial"
+        file: "docs/index.md"
         fields:
-          - label: "Categorias de Tutoriais"
-            name: "tutoriais"
-            widget: "list"
-            fields:
-              - { label: "Nome", name: "nome", widget: "string" }
-              - { label: "Descrição", name: "descricao", widget: "text", required: false }
-          - label: "Categorias de API"
-            name: "api"
-            widget: "list"
-            fields:
-              - { label: "Nome", name: "nome", widget: "string" }
-              - { label: "Descrição", name: "descricao", widget: "text", required: false }
+          - { label: "Título", name: "title", widget: "string" }
+          - { 
+              label: "Categoria", 
+              name: "category", 
+              widget: "string", 
+              required: false
+            }
+          - { 
+              label: "Posição na Sidebar", 
+              name: "sidebar_position", 
+              widget: "number", 
+              default: 1
+            }
+          - { 
+              label: "Descrição", 
+              name: "description", 
+              widget: "text", 
+              required: false
+            }
+          - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # Coleção catch-all para outros documentos
+  - name: "outros_docs"
+    label: "Outros Documentos"
+    folder: "docs"
+    create: true
+    slug: "{{slug}}"
+    filter: {field: "collection", value: "outros"}
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { 
+          label: "Categoria", 
+          name: "category", 
+          widget: "string", 
+          required: false
+        }
+      - { 
+          label: "Posição na Sidebar", 
+          name: "sidebar_position", 
+          widget: "number", 
+          required: false
+        }
+      - { 
+          label: "Coleção", 
+          name: "collection", 
+          widget: "hidden", 
+          default: "outros"
+        }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # Para gerenciar configurações do site
+  - name: "configuracoes"
+    label: "Configurações do Site"
+    files:
+      - name: "sidebar"
+        label: "Configuração da Sidebar"
+        file: "sidebars.js"
+        fields:
+          - { label: "Conteúdo do Arquivo", name: "body", widget: "code", default_language: "javascript" }
