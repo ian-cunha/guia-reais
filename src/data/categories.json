@@ -1,18 +1,21 @@
 {
-    "tutorial_categories": [
-        {
-            "name": "Início"
-        },
-        {
-            "name": "Primeiros Passos"
-        }
-    ],
-    "api_categories": [
-        {
-            "name": "Autenticação"
-        },
-        {
-            "name": "Endpoints Principais"
-        }
-    ]
+  "tutorial_categories": [
+    {
+      "name": "Início"
+    },
+    {
+      "name": "Primeiros Passos"
+    },
+    {
+      "name": "Documentos"
+    }
+  ],
+  "api_categories": [
+    {
+      "name": "Autenticação"
+    },
+    {
+      "name": "Endpoints Principais"
+    }
+  ]
 }
