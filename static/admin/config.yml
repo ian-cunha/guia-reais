@@ -1,53 +1,70 @@
-locale: 'pt'
 backend:
   name: git-gateway
   branch: main
-publish_mode: editorial_workflow
+
 media_folder: "static/img"
 public_folder: "/img"
-collections:
-  # ===================================================
-  # SEÇÃO PARA GERENCIAR TUTORIAIS
-  # ===================================================
-  - name: "tutorial_categories"
-    label: "Categorias - Tutoriais"
-    label_singular: "Categoria de Tutorial"
-    folder: "docs/tutoriais"
-    create: true
-    path: "{{slug}}/_category_.json"
-    extension: "json"
-    format: "json"
-    slug: "{{fields.label}}"
-    fields:
-      - { label: "Nome da Categoria", name: "label", widget: "string" }
-      - { label: "Posição no Menu", name: "position", widget: "number", default: 99, value_type: "int" }
 
+collections:
+
+  # 1) Coleção única para Tutoriais
   - name: "tutoriais"
-    label: "Conteúdo - Tutoriais"
-    label_singular: "Tutorial"
+    label: "Tutoriais"
     folder: "docs/tutoriais"
     create: true
-    path: "{{category}}{{slug}}"
     extension: "md"
     format: "frontmatter"
+    path: "{{slug}}.md"
     fields:
-      - { label: "Título do Tutorial", name: "title", widget: "string" }
-      - name: "category"
-        label: "Categoria do Tutorial"
+      - { label: "Título",    name: "title",   widget: "string" }
+      - { label: "Conteúdo",  name: "body",    widget: "markdown" }
+      - label: "Categoria"
+        name: "category"
         widget: "relation"
         collection: "tutorial_categories"
         display_fields: ["label"]
-        value_field: "slug"
-        search_fields: ["label"]
+        value_field:    "slug"
+        search_fields:  ["label"]
+        create: true
         required: false
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
 
-  # ===================================================
-  # SEÇÃO PARA GERENCIAR DOCUMENTAÇÃO DA API
-  # ===================================================
+  # 2) Coleção única para Documentos de API
+  - name: "api_docs"
+    label: "API Referências"
+    folder: "docs/api-referencias"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    path: "{{slug}}.md"
+    fields:
+      - { label: "Título",    name: "title",  widget: "string" }
+      - { label: "Conteúdo",  name: "body",   widget: "markdown" }
+      - label: "Categoria"
+        name: "category"
+        widget: "relation"
+        collection: "api_categories"
+        display_fields: ["label"]
+        value_field:    "slug"
+        search_fields:  ["label"]
+        create: true
+        required: false
+
+  # 3) Coleção de suporte para armazenar as categorias de Tutoriais
+  - name: "tutorial_categories"
+    label: "Categorias – Tutoriais"
+    folder: "docs/tutoriais"
+    create: true
+    path: "{{slug}}/_category_.json"
+    extension: "json"
+    format: "json"
+    slug: "{{fields.label}}"
+    fields:
+      - { label: "Nome da Categoria", name: "label",    widget: "string" }
+      - { label: "Ordem no Menu",      name: "position", widget: "number", default: 99 }
+
+  # 4) Coleção de suporte para armazenar as categorias de API
   - name: "api_categories"
-    label: "Categorias - API"
-    label_singular: "Categoria de API"
+    label: "Categorias – API"
     folder: "docs/api-referencias"
     create: true
     path: "{{slug}}/_category_.json"
@@ -55,25 +72,5 @@ collections:
     format: "json"
     slug: "{{fields.label}}"
     fields:
-      - { label: "Nome da Categoria da API", name: "label", widget: "string" }
-      - { label: "Posição no Menu", name: "position", widget: "number", default: 99, value_type: "int" }
-
-  - name: "api_docs"
-    label: "Conteúdo - API"
-    label_singular: "Documento da API"
-    folder: "docs/api-referencias"
-    create: true
-    path: "{{category}}{{slug}}"
-    extension: "md"
-    format: "frontmatter"
-    fields:
-      - { label: "Título do Documento da API", name: "title", widget: "string" }
-      - name: "category"
-        label: "Categoria da API"
-        widget: "relation"
-        collection: "api_categories"
-        display_fields: ["label"]
-        value_field: "slug"
-        search_fields: ["label"]
-        required: false
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
+      - { label: "Nome da Categoria", name: "label",     widget: "string" }
+      - { label: "Ordem no Menu",      name: "position",  widget: "number", default: 99 }
