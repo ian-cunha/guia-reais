@@ -4,12 +4,13 @@ backend:
   name: git-gateway
   branch: main
 
+publish_mode: editorial_workflow
 media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
 collections:
   - name: "tutoriais"
-    label: "📄 Tutoriais"
+    label: "Tutoriais"
     folder: "docs/tutoriais"
     create: true
     slug: "{{slug}}"
@@ -18,7 +19,7 @@ collections:
       - { label: "Conteúdo", name: "body", widget: "markdown" }
 
   - name: "api_referencias"
-    label: "⚙️ API Referências"
+    label: "API Referências"
     folder: "docs/api-referencias"
     create: true
     slug: "{{slug}}"
