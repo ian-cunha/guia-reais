@@ -1,5 +1,6 @@
 ---
 sidebar_position: 4
+category: Início
 title: "Entidade: Localização"
 ---
 
