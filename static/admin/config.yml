@@ -2,13 +2,15 @@ locale: 'pt'
 backend:
   name: git-gateway
   branch: main
-publish_mode: editorial_workflow
 media_folder: "static/img"
 public_folder: "/img"
 collections:
+  # ===================================================
+  # SEÇÃO PARA GERENCIAR TUTORIAIS
+  # ===================================================
   - name: "tutorial_categories"
-    label: "Passo 1: Criar Categorias"
-    label_singular: "Categoria"
+    label: "Tutoriais - Passo 1: Categorias"
+    label_singular: "Categoria de Tutorial"
     folder: "docs/tutoriais"
     create: true
     path: "{{slug}}/_category_.json"
@@ -16,11 +18,11 @@ collections:
     format: "json"
     slug: "{{fields.label}}"
     fields:
-      - { label: "Nome da Categoria (Ex: Cadastro de Imóveis)", name: "label", widget: "string" }
-      - { label: "Posição no Menu Lateral", name: "position", widget: "number", default: 99, value_type: "int" }
+      - { label: "Nome da Categoria", name: "label", widget: "string" }
+      - { label: "Posição no Menu", name: "position", widget: "number", default: 99, value_type: "int" }
 
   - name: "tutoriais"
-    label: "Passo 2: Escrever Tutoriais"
+    label: "Tutoriais - Passo 2: Conteúdo"
     label_singular: "Tutorial"
     folder: "docs/tutoriais"
     create: true
@@ -30,10 +32,47 @@ collections:
     fields:
       - { label: "Título do Tutorial", name: "title", widget: "string" }
       - name: "category"
-        label: "Categoria"
+        label: "Categoria do Tutorial"
         widget: "relation"
         collection: "tutorial_categories"
         display_fields: ["label"]
         value_field: "slug"
         search_fields: ["label"]
+        required: false
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # ===================================================
+  # SEÇÃO PARA GERENCIAR DOCUMENTAÇÃO DA API
+  # ===================================================
+  - name: "api_categories"
+    label: "API - Passo 1: Categorias"
+    label_singular: "Categoria de API"
+    folder: "docs/api-referencias"
+    create: true
+    path: "{{slug}}/_category_.json"
+    extension: "json"
+    format: "json"
+    slug: "{{fields.label}}"
+    fields:
+      - { label: "Nome da Categoria da API", name: "label", widget: "string" }
+      - { label: "Posição no Menu", name: "position", widget: "number", default: 99, value_type: "int" }
+
+  - name: "api_docs"
+    label: "API - Passo 2: Conteúdo"
+    label_singular: "Documento da API"
+    folder: "docs/api"
+    create: true
+    path: "{{category}}/{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Título do Documento da API", name: "title", widget: "string" }
+      - name: "category"
+        label: "Categoria da API"
+        widget: "relation"
+        collection: "api_categories"
+        display_fields: ["label"]
+        value_field: "slug"
+        search_fields: ["label"]
+        required: false
       - { label: "Conteúdo", name: "body", widget: "markdown" }
