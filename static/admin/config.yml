@@ -6,79 +6,34 @@ publish_mode: editorial_workflow
 media_folder: "static/img"
 public_folder: "/img"
 collections:
-  # ===================================================================
-  # COLEÇÃO PARA GERENCIAR AS SUBPASTAS
-  # ===================================================================
-  - name: "settings"
-    label: "Gerenciar Subpastas"
-    files:
-      - label: "Listas de Subpastas"
-        name: "categories"
-        file: "src/data/subpastas.json"
-        fields:
-          - label: "Subpastas de Tutoriais"
-            name: "tutorial_subpastas"
-            widget: "list"
-            summary: "{{fields.name}}"
-            fields:
-              - { label: "Nome da Subpasta", name: "name", widget: "string" }
-          - label: "Subpastas de API"
-            name: "api_subpastas"
-            widget: "list"
-            summary: "{{fields.name}}"
-            fields:
-              - { label: "Nome da Subpasta", name: "name", widget: "string" }
-
-  # ===================================================================
-  # COLEÇÃO DE TUTORIAIS
-  # ===================================================================
-  - name: "posts"
-    label: "Tutoriais"
+  - name: "tutorial_categories"
+    label: "Passo 1: Criar Categorias"
+    label_singular: "Categoria"
     folder: "docs/tutoriais"
     create: true
-    slug: "{{slug}}"
-    view_groups:
-      - label: "Subpastas"
-        field: "category"
+    path: "{{slug}}/_category_.json"
+    extension: "json"
+    format: "json"
+    slug: "{{fields.label}}"
     fields:
-      - label: "Subpasta"
-        name: "category"
-        widget: "relation"
-        collection: "settings"
-        file: "categories"
-        search_fields: ["tutorial_subpastas.*.name"]
-        display_fields: ["tutorial_subpastas.*.name"]
-        value_field: "tutorial_subpastas.*.name"
-        required: false
-        default: ""
-        hint: "Deixe em branco para postar na raiz da seção (sem subpasta)."
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Posição na Barra Lateral", name: "sidebar_position", widget: "number" }
-      - { label: "Corpo", name: "body", widget: "markdown" }
+      - { label: "Nome da Categoria (Ex: Cadastro de Imóveis)", name: "label", widget: "string" }
+      - { label: "Posição no Menu Lateral", name: "position", widget: "number", default: 99, value_type: "int" }
 
-  # ===================================================================
-  # COLEÇÃO DE API REFERÊNCIAS
-  # ===================================================================
-  - name: "posts-2"
-    label: "API Referências"
-    folder: "docs/api-referencias"
+  - name: "tutoriais"
+    label: "Passo 2: Escrever Tutoriais"
+    label_singular: "Tutorial"
+    folder: "docs/tutoriais"
     create: true
-    slug: "{{slug}}"
-    view_groups:
-      - label: "Subpastas"
-        field: "category"
+    path: "{{category}}/{{slug}}"
+    extension: "md"
+    format: "frontmatter"
     fields:
-      - label: "Subpasta"
-        name: "category"
+      - { label: "Título do Tutorial", name: "title", widget: "string" }
+      - name: "category"
+        label: "Categoria"
         widget: "relation"
-        collection: "settings"
-        file: "categories"
-        search_fields: ["api_subpastas.*.name"]
-        display_fields: ["api_subpastas.*.name"]
-        value_field: "api_subpastas.*.name"
-        required: false
-        default: ""
-        hint: "Deixe em branco para postar na raiz da seção (sem subpasta)."
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Posição na Barra Lateral", name: "sidebar_position", widget: "number" }
-      - { label: "Corpo", name: "body", widget: "markdown" }
+        collection: "tutorial_categories"
+        display_fields: ["label"]
+        value_field: "slug"
+        search_fields: ["label"]
+      - { label: "Conteúdo", name: "body", widget: "markdown" }

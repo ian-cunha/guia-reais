@@ -1,4 +1,5 @@
 ---
+category: ""
 sidebar_position: 2
 title: Teste 0
 ---

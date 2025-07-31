@@ -1,4 +1,5 @@
 ---
+category: ""
 sidebar_position: 1
 title: Bem-vindo à Documentação
 ---

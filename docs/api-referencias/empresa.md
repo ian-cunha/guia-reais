@@ -1,4 +1,5 @@
 ---
+category: ""
 sidebar_position: 5
 title: "Entidade: Empresa"
 ---
