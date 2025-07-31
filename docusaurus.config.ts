@@ -7,20 +7,25 @@ const config: Config = {
   tagline: 'Seu guia completo para integrar e dominar nossa plataforma.',
   favicon: 'img/favicon.ico',
 
-  future: { v4: true },
+  future: {
+    v4: true,
+  },
+
   url: 'https://guiareais.netlify.app',
   baseUrl: '/',
-  trailingSlash: true,
 
   scripts: [
-    { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js', defer: true },
+    {
+      src: 'https://identity.netlify.com/v1/netlify-identity-widget.js',
+      defer: true,
+    },
   ],
 
   organizationName: 'ian-cunha',
   projectName: 'guia-reais',
 
-  onBrokenLinks: 'ignore',
-  onBrokenMarkdownLinks: 'ignore',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'pt-BR',
@@ -34,7 +39,7 @@ const config: Config = {
         id: 'tutoriais',
         path: 'docs/tutoriais',
         routeBasePath: 'tutoriais',
-        sidebarPath: require.resolve('./sidebars.ts'),
+        sidebarPath: './sidebars.ts',
       },
     ],
     [
@@ -43,7 +48,7 @@ const config: Config = {
         id: 'api-referencias',
         path: 'docs/api-referencias',
         routeBasePath: 'api-referencias',
-        sidebarPath: require.resolve('./sidebars.ts'),
+        sidebarPath: './sidebars.ts',
       },
     ],
   ],
@@ -53,8 +58,13 @@ const config: Config = {
       'classic',
       {
         docs: false,
+        /*blog: {
+          showReadingTime: true,
+          editUrl:
+            'https://github.com/ian-cunha/guia-reais/tree/main/',
+        },*/
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
     ],
@@ -63,7 +73,10 @@ const config: Config = {
   themeConfig: {
     navbar: {
       title: 'Guia RE.AI.s',
-      logo: { alt: 'RE.AI.s', src: 'img/logo.svg' },
+      logo: {
+        alt: 'RE.AI.s',
+        src: 'img/logo.svg',
+      },
       items: [
         {
           type: 'doc',
@@ -79,6 +92,7 @@ const config: Config = {
           label: 'API Referências',
           docsPluginId: 'api-referencias',
         },
+        /*{ to: '/blog', label: 'Blog', position: 'left' },*/
         {
           href: 'https://www.reaisystems.com.br/',
           label: 'RE.AI.s',
@@ -92,8 +106,14 @@ const config: Config = {
         {
           title: 'Seções',
           items: [
-            { label: 'Tutoriais', to: '/tutoriais/intro' },
-            { label: 'API Referências', to: '/api-referencias/intro' },
+            {
+              label: 'Tutoriais',
+              to: '/tutoriais/intro',
+            },
+            {
+              label: 'API Referências',
+              to: '/api-referencias/intro',
+            },
           ],
         },
         {
@@ -105,10 +125,13 @@ const config: Config = {
         },
         {
           title: 'Mais',
-          items: [{ label: 'Site', href: 'http://realestateaiplanner.com.br/' }],
+          items: [
+            /*{ label: 'Blog', to: '/blog' },*/
+            { label: 'Site', href: 'http://realestateaiplanner.com.br/' },
+          ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Real Estate AI Planner LTDA.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Real Estate Ai Planner LTDA.`,
     },
     prism: {
       theme: prismThemes.github,
