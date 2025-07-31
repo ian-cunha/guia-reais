@@ -2,6 +2,7 @@ locale: 'pt'
 backend:
   name: git-gateway
   branch: main
+publish_mode: editorial_workflow
 media_folder: "static/img"
 public_folder: "/img"
 collections:
@@ -9,7 +10,7 @@ collections:
   # SEÇÃO PARA GERENCIAR TUTORIAIS
   # ===================================================
   - name: "tutorial_categories"
-    label: "Tutoriais - Passo 1: Categorias"
+    label: "Categorias - Tutoriais"
     label_singular: "Categoria de Tutorial"
     folder: "docs/tutoriais"
     create: true
@@ -22,11 +23,11 @@ collections:
       - { label: "Posição no Menu", name: "position", widget: "number", default: 99, value_type: "int" }
 
   - name: "tutoriais"
-    label: "Tutoriais - Passo 2: Conteúdo"
+    label: "Conteúdo - Tutoriais"
     label_singular: "Tutorial"
     folder: "docs/tutoriais"
     create: true
-    path: "{{category}}/{{slug}}"
+    path: "{{category}}{{slug}}"
     extension: "md"
     format: "frontmatter"
     fields:
@@ -45,7 +46,7 @@ collections:
   # SEÇÃO PARA GERENCIAR DOCUMENTAÇÃO DA API
   # ===================================================
   - name: "api_categories"
-    label: "API - Passo 1: Categorias"
+    label: "Categorias - API"
     label_singular: "Categoria de API"
     folder: "docs/api-referencias"
     create: true
@@ -58,11 +59,11 @@ collections:
       - { label: "Posição no Menu", name: "position", widget: "number", default: 99, value_type: "int" }
 
   - name: "api_docs"
-    label: "API - Passo 2: Conteúdo"
+    label: "Conteúdo - API"
     label_singular: "Documento da API"
-    folder: "docs/api"
+    folder: "docs/api-referencias"
     create: true
-    path: "{{category}}/{{slug}}"
+    path: "{{category}}{{slug}}"
     extension: "md"
     format: "frontmatter"
     fields:
