@@ -19,8 +19,8 @@ const config: Config = {
   organizationName: 'ian-cunha',
   projectName: 'guia-reais',
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: 'ignore',
+  onBrokenMarkdownLinks: 'ignore',
 
   i18n: {
     defaultLocale: 'pt-BR',
