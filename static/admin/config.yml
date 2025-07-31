@@ -4,7 +4,6 @@ backend:
   name: git-gateway
   branch: main
 
-
 media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
@@ -13,6 +12,7 @@ collections:
     label: "Tutoriais"
     folder: "docs/tutoriais"
     create: true
+    # Configuração para criar subpastas por categoria automaticamente
     slug: "{{category}}/{{slug}}"
     path: "{{category}}/{{slug}}"
     fields:
@@ -22,7 +22,7 @@ collections:
           name: "category", 
           widget: "string",
           default: "geral",
-          hint: "Digite o nome da categoria (será usada como nome da pasta). Use apenas letras minúsculas, números e hífens. Ex: 'minha-categoria'"
+          hint: "Digite o nome da categoria (será criada automaticamente como pasta). Use apenas letras minúsculas, números e hífens."
         }
       - { 
           label: "Posição na Sidebar", 
@@ -51,6 +51,7 @@ collections:
     label: "API Referências"
     folder: "docs/api-referencias"
     create: true
+    # Configuração para criar subpastas por categoria de API automaticamente
     slug: "{{category}}/{{slug}}"
     path: "{{category}}/{{slug}}"
     fields:
@@ -60,7 +61,7 @@ collections:
           name: "category", 
           widget: "string",
           default: "geral",
-          hint: "Digite o nome da categoria da API (será usada como nome da pasta). Use apenas letras minúsculas, números e hífens."
+          hint: "Digite o nome da categoria da API (será criada automaticamente como pasta). Use apenas letras minúsculas, números e hífens."
         }
       - { 
           label: "Posição na Sidebar", 
@@ -85,20 +86,15 @@ collections:
         }
       - { label: "Descrição da API", name: "body", widget: "markdown" }
 
-  - name: "docs_principais"
-    label: "Documentação Principal"
+  # Gerenciar páginas iniciais dos plugins diretamente pelo admin
+  - name: "paginas_iniciais"
+    label: "Páginas Iniciais"
     files:
-      - name: "index"
-        label: "Página Inicial"
-        file: "docs/index.md"
+      - name: "intro_tutoriais"
+        label: "Intro - Tutoriais"
+        file: "docs/tutoriais/intro.md"
         fields:
-          - { label: "Título", name: "title", widget: "string" }
-          - { 
-              label: "Categoria", 
-              name: "category", 
-              widget: "string", 
-              required: false
-            }
+          - { label: "Título", name: "title", widget: "string", default: "Introdução aos Tutoriais" }
           - { 
               label: "Posição na Sidebar", 
               name: "sidebar_position", 
@@ -109,6 +105,54 @@ collections:
               label: "Descrição", 
               name: "description", 
               widget: "text", 
-              required: false
+              required: false,
+              hint: "Descrição que aparece no SEO"
             }
           - { label: "Conteúdo", name: "body", widget: "markdown" }
+      
+      - name: "intro_api"
+        label: "Intro - API Referências"
+        file: "docs/api-referencias/intro.md"
+        fields:
+          - { label: "Título", name: "title", widget: "string", default: "Referências da API" }
+          - { 
+              label: "Posição na Sidebar", 
+              name: "sidebar_position", 
+              widget: "number", 
+              default: 1
+            }
+          - { 
+              label: "Descrição", 
+              name: "description", 
+              widget: "text", 
+              required: false,
+              hint: "Descrição que aparece no SEO"
+            }
+          - { label: "Conteúdo", name: "body", widget: "markdown" }
+
+  # Gerenciar configurações de categoria diretamente pelo admin
+  - name: "configuracoes_categoria"
+    label: "Configurações de Categoria"
+    folder: "docs/categoria-configs"
+    create: true
+    slug: "{{nome_categoria}}-config"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "Nome da Categoria", name: "nome_categoria", widget: "string" }
+      - { label: "Label de Exibição", name: "label", widget: "string" }
+      - { label: "Posição", name: "position", widget: "number", required: false }
+      - { 
+          label: "Descrição", 
+          name: "description", 
+          widget: "text", 
+          required: false,
+          hint: "Descrição que aparece na página índice da categoria"
+        }
+      - { 
+          label: "Tipo", 
+          name: "tipo", 
+          widget: "select", 
+          options: ["tutorial", "api"],
+          hint: "Para qual seção é esta categoria"
+        }
