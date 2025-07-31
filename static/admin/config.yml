@@ -1,3 +1,4 @@
+locale: 'pt'
 backend:
   name: git-gateway
   branch: main
@@ -6,71 +7,71 @@ media_folder: "static/img"
 public_folder: "/img"
 
 collections:
-
-  # 1) Coleção única para Tutoriais
-  - name: "tutoriais"
-    label: "Tutoriais"
+  - name: "tutoriais_categories"
+    label: "Tutoriais - Categorias"
+    label_singular: "Categoria de Tutorial"
     folder: "docs/tutoriais"
     create: true
-    extension: "md"
-    format: "frontmatter"
-    path: "{{slug}}.md"
+    path: "{{slug}}/_category_.json"
+    slug: "{{slug}}"
+    identifier_field: "label"
+    summary: "{{label}} (Posição: {{position}})"
     fields:
-      - { label: "Título",    name: "title",   widget: "string" }
-      - { label: "Conteúdo",  name: "body",    widget: "markdown" }
-      - label: "Categoria"
-        name: "category"
-        widget: "relation"
-        collection: "tutorial_categories"
-        display_fields: ["label"]
-        value_field:    "slug"
-        search_fields:  ["label"]
-        create: true
-        required: false
+      - { label: "Título da Categoria", name: "label", widget: "string" }
+      - { label: "Posição na Barra Lateral", name: "position", widget: "number", default: 10 }
+      - { label: "Link", name: "link", widget: "hidden", default: { type: "generated-index" } }
 
-  # 2) Coleção única para Documentos de API
-  - name: "api_docs"
-    label: "API Referências"
+  - name: "tutoriais_docs"
+    label: "Tutoriais - Documentos"
+    label_singular: "Documento de Tutorial"
+    folder: "docs/tutoriais"
+    create: true
+    slug: "{{slug}}"
+    path: "{{category}}/{{slug}}.md"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+      - name: "category"
+        label: "Categoria do Tutorial"
+        widget: "relation"
+        collection: "tutoriais_categories"
+        search_fields: ["label"]
+        value_field: "{{slug}}"
+        display_fields: ["label"]
+        required: false
+        hint: "Deixe em branco para criar o documento na raiz de Tutoriais."
+
+  # --- SEÇÃO DE API REFERÊNCIAS ---
+  - name: "api_categories"
+    label: "API - Categorias"
+    label_singular: "Categoria de API"
     folder: "docs/api-referencias"
     create: true
-    extension: "md"
-    format: "frontmatter"
-    path: "{{slug}}.md"
+    path: "{{slug}}/_category_.json"
+    slug: "{{slug}}"
+    identifier_field: "label"
+    summary: "{{label}} (Posição: {{position}})"
     fields:
-      - { label: "Título",    name: "title",  widget: "string" }
-      - { label: "Conteúdo",  name: "body",   widget: "markdown" }
-      - label: "Categoria"
-        name: "category"
+      - { label: "Título da Categoria", name: "label", widget: "string" }
+      - { label: "Posição na Barra Lateral", name: "position", widget: "number", default: 10 }
+      - { label: "Link", name: "link", widget: "hidden", default: { type: "generated-index" } }
+
+  - name: "api_docs"
+    label: "API - Documentos"
+    label_singular: "Documento de API"
+    folder: "docs/api-referencias"
+    create: true
+    slug: "{{slug}}"
+    path: "{{category}}/{{slug}}.md"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Conteúdo", name: "body", widget: "markdown" }
+      - name: "category"
+        label: "Categoria da API"
         widget: "relation"
         collection: "api_categories"
+        search_fields: ["label"]
+        value_field: "{{slug}}"
         display_fields: ["label"]
-        value_field:    "slug"
-        search_fields:  ["label"]
-        create: true
         required: false
-
-  # 3) Coleção de suporte para armazenar as categorias de Tutoriais
-  - name: "tutorial_categories"
-    label: "Categorias – Tutoriais"
-    folder: "docs/tutoriais"
-    create: true
-    path: "{{slug}}/_category_.json"
-    extension: "json"
-    format: "json"
-    slug: "{{fields.label}}"
-    fields:
-      - { label: "Nome da Categoria", name: "label",    widget: "string" }
-      - { label: "Ordem no Menu",      name: "position", widget: "number", default: 99 }
-
-  # 4) Coleção de suporte para armazenar as categorias de API
-  - name: "api_categories"
-    label: "Categorias – API"
-    folder: "docs/api-referencias"
-    create: true
-    path: "{{slug}}/_category_.json"
-    extension: "json"
-    format: "json"
-    slug: "{{fields.label}}"
-    fields:
-      - { label: "Nome da Categoria", name: "label",     widget: "string" }
-      - { label: "Ordem no Menu",      name: "position",  widget: "number", default: 99 }
+        hint: "Deixe em branco para criar o documento na raiz de API Referências."
