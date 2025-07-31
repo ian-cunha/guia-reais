@@ -13,7 +13,7 @@ Bem-vindo ao nosso tutorial em vídeo! Neste guia rápido, você aprenderá a us
 
 Clique no player abaixo para assistir ao tutorial completo:
 
-[![Assista ao tutorial no YouTube](https://i.ytimg.com/an_webp/gZ0AqUIBFKM/mqdefault_6s.webp?du=3000&sqp=CKTbqcQG&rs=AOn4CLB72QWbFRH1qVpA2jiJVCmmCn4ASA)](https://youtu.be/gZ0AqUIBFKM)
+[![Assista ao tutorial no YouTube](https://i.ytimg.com/an_webp/gZ0AqUIBFKM/mqdefault_6s.webp?du=3000&sqp=CNbPrcQG&rs=AOn4CLCNF_fLW0yXiMeLzLo9nhJa1Oarrg)](https://youtu.be/gZ0AqUIBFKM)
 
 ---
 
