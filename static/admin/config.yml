@@ -4,25 +4,39 @@ backend:
   name: git-gateway
   branch: main
 
-publish_mode: editorial_workflow
+# publish_mode: editorial_workflow
 media_folder: "static/img/docs"
 public_folder: "/img/docs"
 
 collections:
-  - name: "tutoriais"
-    label: "Tutoriais"
-    folder: "docs/tutoriais"
+  - name: "categorias"
+    label: "Categorias"
+    folder: "docs/categorias"
     create: true
+    delete: true
     slug: "{{slug}}"
     fields:
-      - { label: "Título", name: "title", widget: "string" }
-      - { label: "Conteúdo", name: "body", widget: "markdown" }
+      - { name: "title", label: "Título", widget: "string" }
+      - 
+        name: "description"
+        label: "Descrição"
+        widget: "text"
+        required: false
 
-  - name: "api_referencias"
-    label: "API Referências"
-    folder: "docs/api-referencias"
+  - name: "textos"
+    label: "Textos"
+    folder: "docs/textos"
     create: true
+    delete: true
     slug: "{{slug}}"
     fields:
-      - { label: "Título do Endpoint", name: "title", widget: "string" }
-      - { label: "Descrição da API", name: "body", widget: "markdown" }
+      - { name: "title", label: "Título", widget: "string" }
+      - 
+        name: "categoria"
+        label: "Categoria"
+        widget: "relation"
+        collection: "categorias"
+        searchFields: ["title"]
+        valueField: "title"
+        displayFields: ["title"]
+      - { name: "body", label: "Conteúdo", widget: "markdown" }
